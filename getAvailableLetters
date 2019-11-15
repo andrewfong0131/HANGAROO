@@ -1,0 +1,9 @@
+pick = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+lettersGuessed = list(input("Enter any list of letters: "))
+def getAvailableLetters(lettersGuessed):
+    led = []
+    for m in pick:
+        led = ["" if m in lettersGuessed else m for m in pick]
+    print (''.join(led))
+    return m
+getAvailableLetters(lettersGuessed)
