@@ -1,0 +1,48 @@
+import random
+pick = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',]
+anyword = ['gold','maximum','error','matrix','testify','like','eater','orange','sinigang','anaconda','hay','yellow','magnet','hotline']
+secretWord = random.choice(anyword); wordlength = len(secretWord); lettersGuessed =[]; guessWord =[]
+def begin():
+    print("Disclaimer: No kangaroos were harmed in the making of this game.")
+    print("Hello and Welcome to Hangaroo.")
+begin()
+def longword():
+    for character in secretWord:
+        guessWord.append("_")
+    print("The number of characters in this word is", wordlength)
+    print(' '.join(guessWord))
+    print("Up to four tries only.") 
+def tryguess():
+    tries = 0
+    while tries < 4:
+        print("\n", ' '.join(pick))
+        guess = input("Input a letter: ").lower()
+        if guess in lettersGuessed:
+            print("This letter has been used. Please try again.")
+        elif guess not in pick:
+            print (guess,"is not a letter")
+            tries += 1
+            print("Mistakes Made: ", tries)
+        else:
+            lettersGuessed.append(guess)
+            if guess in secretWord:
+                print("Correct Guess")
+                for m in range(0, wordlength):
+                    if secretWord[m] == guess:
+                        guessWord[m] = guess
+                        print(' '.join(guessWord))
+                pick.remove(guess)
+            else:
+                print("Not Correct. Sorry.")
+                pick.remove(guess)
+                tries += 1
+                print("Mistakes Made: ", tries)
+                if tries == 4:
+                    print("Oh no. The kangaroo fell. The word was:", secretWord)
+                    print("Game over. You can try again.")
+                    break
+        if '_' not in guessWord:
+                        print("Winner! You got the correct word.", secretWord, "!")
+                        break              
+longword()
+tryguess()
