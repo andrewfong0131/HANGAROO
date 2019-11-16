@@ -1,9 +1,9 @@
 secretWord = str(input("Enter a secret word: "))
 lettersGuessed = input("Guess the letters: ")
 def isWordGuessed (secretWord, lettersGuessed):
-        for f in secretWord:
-            s = f in lettersGuessed
-            if f == ("False"):
+        for m in secretWord:
+            s = m in lettersGuessed
+            if m == ("False"):
                 break
             return s
 print (isWordGuessed(secretWord, lettersGuessed))
